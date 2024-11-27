@@ -26,6 +26,11 @@ namespace TranManAnh
             Console.ReadKey();
         }
 
+        
+        /// <summary>
+        /// Enter item values for this array.
+        /// </summary>
+        /// <param name="a"></param>
         static void NhapMang(int[] a)
         {
             for (int i = 0; i < a.Length; i++)
@@ -35,6 +40,10 @@ namespace TranManAnh
             }
         }
 
+        /// <summary>
+        /// Print the array to screen.
+        /// </summary>
+        /// <param name="a"></param>
         static void InMang(int[] a)
         {
             foreach (int item in a)
@@ -44,6 +53,11 @@ namespace TranManAnh
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Write a function that increase each item of the array by adding it with 2.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="val"></param>
         static void Increase2(int[] a, int val)
         {
             for (int i = 0; i < a.Length; i++)
@@ -52,6 +66,11 @@ namespace TranManAnh
             }
         }
 
+        /// <summary>
+        /// Write a function that calculate the sum of all items of the array.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <returns></returns>
         static int Sum(int[] a)
         {
             int s = 0;
@@ -62,6 +81,10 @@ namespace TranManAnh
             return s;
         }
 
+        /// <summary>
+        /// Write a function that calculate the average of all items of the array.
+        /// </summary>
+        /// <param name="a"></param>
         static void Average(int[] a)
         {
             int ave = 0;
