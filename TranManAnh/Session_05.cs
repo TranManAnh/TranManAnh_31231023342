@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -92,53 +92,46 @@ namespace TranManAnh
         /// </summary>
         public static void Question_04()
         {
-            bool Prime(int x)
+            bool prime(int x)
             {
-                if (x < 2)
-                    return false;
-                for (int i = 2; i * i <= x; i++)
+                if (x < 2) return false;
+                for (int i = 2; i <= Math.Sqrt(x); i++)
+                {
                     if (x % i == 0) return false;
+                }
                 return true;
             }
 
-            void Print(int limit)
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            Console.Write($"Prime numbers less than {num}: ");
+            bool check = false; 
+            for (int i = 2; i < num; i++)
             {
-                Console.WriteLine($"Prime numbers less than {limit}:");
-                for (int i = 2; i < limit; i++)
+                if (prime(i))
                 {
-                    if (Prime(i))
-                    {
-                        Console.Write(i + " ");
-                    }
+                    Console.Write($"{i}, ");
+                    check = true;
                 }
-                Console.WriteLine();
             }
+            if (!check)
+                Console.WriteLine($"There is no prime number less than {num}");
+            Console.WriteLine();
 
-            void PrintFirstNPrimes(int N)
+            Console.Write("Enter the number of first prime numbers (N): ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write($"The first {n} prime numbers are: ");
+            int count = 0, current = 2; 
+            while (count < n)
             {
-                int count = 0;
-                int num = 2;
-                Console.WriteLine($"First {N} prime numbers:");
-
-                while (count < N)
+                if (prime(current))
                 {
-                    if (Prime(num))
-                    {
-                        Console.Write(num + " ");
-                        count++;
-                    }
-                    num++;
+                    Console.Write($"{current}, ");
+                    count++;
                 }
-                Console.WriteLine();
+                current++;
             }
-
-            Console.Write("Enter a number to print all prime numbers less than it: ");
-            int limit = int.Parse(Console.ReadLine());
-            Print(limit);
-
-            Console.Write("Enter the number of primes to print: ");
-            int N = int.Parse(Console.ReadLine());
-            PrintFirstNPrimes(N);
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -146,30 +139,27 @@ namespace TranManAnh
         /// </summary>
         public static void Question_05()
         {
-            bool PerfectNumber(int x, int sum)
+            bool perfect(int x)
             {
-                for (int i = 1; i <= x / 2; i++)
+                if (x < 2) return false;
+                int sum = 0;
+                for (int i = 1; i <= x / 2; i++) 
                 {
-                    if (x % i == 0)
+                    if (x % i == 0) 
                     {
-                        sum += i;
+                        sum += i; 
                     }
                 }
-                if (sum == x && x == 0)
-                    return false;
-                return true;
+                return sum == x;
             }
-
-            Console.Write("Enter number a = ");
-            int a = int.Parse(Console.ReadLine());
-
-            for (int i = 1; i < 1000; i++)
+ 
+            Console.Write("The perfect number that less than 1000: ");
+            for (int i = 0; i < 1000; i++)
             {
-                if (PerfectNumber(i))
-                {
-                    Console.WriteLine(i);
-                }
+                if (perfect(i))
+                    Console.Write($"{i}, ");
             }
+            Console.WriteLine();
         }
 
         /// <summary>
